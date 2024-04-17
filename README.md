@@ -31,3 +31,25 @@ PS C:\Users\hongf\Documents\03_Git\docker-python-flask> docker run -p 5000:5000 
 
 In browser access: http://127.0.0.1:5000/
 
+
+
+## bind-mounting
+
+```bash
+hongfei@Surface-Pro-IX:/mnt/c/Users/hongf/Downloads/Browser/dockerfiles-master/bind-mounting$ docker build -t bind:v1 .
+hongfei@Surface-Pro-IX:/mnt/c/Users/hongf/Downloads/Browser/dockerfiles-master/bind-mounting$ pwd
+/mnt/c/Users/hongf/Downloads/Browser/dockerfiles-master/bind-mounting
+hongfei@Surface-Pro-IX:/mnt/c/Users/hongf/Downloads/Browser/dockerfiles-master/bind-mounting$ docker run -d -p 80:80 -v /mnt/c/Users/hongf/Downloads/Browser/dockerfiles-master/bind-mounting:/usr/share/nginx/html --name web bind:v1
+47c952c8fb47c2f844ef4a539a076ef433883a4ba104e56ab2e25863df8d359d
+hongfei@Surface-Pro-IX:/mnt/c/Users/hongf/Downloads/Browser/dockerfiles-master/bind-mounting$ docker exec -it web /bin/bash
+root@47c952c8fb47:/usr/share/nginx/html# ls
+Dockerfile  index.html
+root@47c952c8fb47:/usr/share/nginx/html# touch test.txt
+root@47c952c8fb47:/usr/share/nginx/html# exit
+exit
+```
+
+
+
+
+
